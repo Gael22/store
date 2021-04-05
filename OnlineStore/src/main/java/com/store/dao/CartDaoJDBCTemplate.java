@@ -3,10 +3,19 @@ package com.store.dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.store.dao.mapper.CartRowMapper;
 import com.store.pojo.Cart;
 import com.store.pojo.Item;
 
-public class CartDaoJDBCTemplate implements CartDao{
+@Repository
+public class CartDaoJDBCTemplate implements CartDao {
+	
+	private JdbcTemplate jdbcTemplate;
+	
+	private CartRowMapper cartRowMapper;
 
 	public Cart createCart(Cart cart) throws SQLException {
 		// TODO Auto-generated method stub
